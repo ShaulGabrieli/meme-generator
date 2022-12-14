@@ -7,18 +7,54 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Meme Generator</title>
 </head>
-<body>
+<body onload="onInit()">
     <header>
-        <nav></nav>
+        <nav class="flex space-between align-center">
+            <div class="logo">
+                <img src="img/Layer_2.png" alt="">
+            </div>
+            <ul class="nav-buttons clean-list flex">
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">About</a></li>        
+            </ul>
+        </nav>
     </header>
     <main>
         <section class="gallery">
-
+            <section class="grid-container">
+                <article class="gallery-img img1"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/1.jpg" alt=""></article>
+                <article class="gallery-img img2"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/2.jpg" alt=""></article>
+                <article class="gallery-img img3"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/3.jpg" alt=""></article>
+                <article class="gallery-img img4"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/4.jpg" alt=""></article>
+                <article class="gallery-img img5"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/5.jpg" alt=""></article>
+                <article class="gallery-img img6"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/6.jpg" alt=""></article>
+                <article class="gallery-img img7"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/7.jpg" alt=""></article>
+                <article class="gallery-img img8"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/8.jpg" alt=""></article>
+                <article class="gallery-img img9"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/9.jpg" alt=""></article>
+                <article class="gallery-img img10"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/10.jpg" alt=""></article>
+                <article class="gallery-img img11"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/11.jpg" alt=""></article>
+                <article class="gallery-img img12"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/12.jpg" alt=""></article>
+                <article class="gallery-img img13"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/13.jpg" alt=""></article>
+                <article class="gallery-img img14"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/14.jpg" alt=""></article>
+                <article class="gallery-img img15"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/15.jpg" alt=""></article>
+                <article class="gallery-img img16"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/16.jpg" alt=""></article>
+                <article class="gallery-img img17"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/17.jpg" alt=""></article>
+                <article class="gallery-img img18"><img onclick="onImgClicked(this)" src="img/meme-imgs (square)/18.jpg" alt=""></article>
+                
+                
+            </section>
         </section>
-        <section class="editor">
-            
+        <section class="editor flex">
+            <div class="canvas-container">
+                <canvas id="my-canvas" width="500" height="500"></canvas>
+            </div>
+            <div class="editor-buttons">
+
+
+            </div>
         </section>
     </main>
+    <script src="js/memeController.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
