@@ -11,8 +11,9 @@ function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     resizeCanvas()
-    addListeners()
+    // addListeners()
     renderCanvas()
+    renderGallery()
 }
 
 function renderCanvas() {
