@@ -14,27 +14,57 @@
                 <img src="img/Layer_2.png" alt="">
             </div>
             <ul class="nav-buttons clean-list flex">
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">About</a></li>        
+                <li><a href="#" onclick="openGallery()">Gallery</a></li>
+                <li><a href="#bottom">About</a></li>        
             </ul>
         </nav>
     </header>
-    <main>
-        <section class="gallery">
+    <main class="flex">
+        <section class="gallery flex">
             <section class="grid-container gallery-grid"> 
             </section>
+            <section id="bottom" class="my-details flex">
+                <img class="my-img" src="img/Shaul gabrieli.png" alt="">
+                <div class="flex my-note justify-center">
+                    <h2>Shaul Gabrieli</h2>
+                    <p>I made this Meme generator</p>
+                    <ul class="flex icons-container">
+                        <li> <div class="social-icons flex justify-center align-center"> <img class="linkedin" src="img/ICONS/linkedin-logo (1).png" alt=""></div> </li>
+                        <li> <div class="social-icons flex justify-center align-center"> <img class="facebook" src="img/ICONS/facebook-logo_copy_2.png" alt=""></div> </li>
+                        <li> <div class="social-icons flex justify-center align-center"> <img class="github" src="img/ICONS/github-logo (1).png" alt=""></div> </li>
+  
+                    </ul>
+                </div>
+            </section>
         </section>
-        <section class="editor flex">
+        <section class="editor flex space-between hide">
             <div class="canvas-container">
                 <canvas id="my-canvas" width="500" height="500"></canvas>
             </div>
             <div class="editor-buttons">
                 <label for="text-line">Enter a text:</label>
-                <input type="text" id="text-line" onkeyup="setLineTxt(this.value)">
+                <input type="text" id="text-line" onkeyup="onSetLineTxt(this.value)">
+                <label for="">Color</label>
+                <input type="color" onchange="onPickColor(this.value)">
+                <div class="editor-button-container flex align-center justify-center"> 
+                     <img class="editor-button" src="img/ICONS/decrease font - icon.png" onclick="onDecreaseFont()" alt="">
+                </div>
+                <div class="editor-button-container flex align-center justify-center"> 
+                     <img class="editor-button" src="img/ICONS/increase font - icon.png" onclick="onIncreaseFont()" alt="">
+                </div>
+                <div class="editor-button-container flex align-center justify-center"> 
+                     <img class="editor-button" src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" onclick="onChangeLine()" alt="">
+                </div>
 
             </div>
         </section>
     </main>
+    <footer class="flex justify-center align-center">
+        <div class="logo logo-bottom">
+            <img src="img/Layer_2.png" alt="">
+        </div>
+        <p>all rights reserved 2019</p>
+    </footer>
     <script src="js/memeService.js"></script>
     <script src="js/galleryController.js"></script>
     <script src="js/memeController.js"></script>

@@ -1,6 +1,10 @@
 'use strict'
 
-var gMeme 
+var gMeme = {
+    selectedImgId: 0,
+    selectedLineIdx: 0,
+    lines: [createText('',100,'center','white'), createText('',100,'center','white')]
+}
 
 var gImgs = createImages()
 var gIdx = 19
@@ -8,22 +12,20 @@ var gIdx = 19
 
 function getMeme() {
     return gMeme.selectedImgId
-    
 }
 
 function setImg(img){
-    gMeme = crateMeme(img.dataset.id)
+    // gMeme = crateMeme(img.dataset.id)
+    gMeme.selectedImgId = img.dataset.id
 }
 
-function setLineTxt(txt){
-    gMeme.lines[0] = createText(txt)
-    renderImgById(gMeme.selectedImgId)
-    drawText(gMeme.lines[0].txt, 100, 100,100)
+function setLineTxt(text){
+    gMeme.lines[gMeme.selectedLineIdx].txt = text
     
 }
 
 function crateMeme(selectedImgId = gIdx++) {
-    let meme = {
+    const meme = {
         selectedImgId,
         selectedLineIdx: 0,
         lines: [],
@@ -58,12 +60,29 @@ function getMemesForDisplay(){
     return gImgs
 }
 
-function createText(txt, size = 100,align='center',color='black'){
-    let text = {
+function createText(txt,size,align,color){
+    const text = {
         txt,
         size,
         align,
         color,
     }
     return text
+}
+
+function PickColor(value){
+    gMeme.lines[gMeme.selectedLineIdx].color = value
+}
+
+function decreaseFont(){
+    gMeme.lines[gMeme.selectedLineIdx].size -= 5
+}
+
+function increaseFont(){
+    gMeme.lines[gMeme.selectedLineIdx].size += 5
+}
+
+function changeLine(){
+    if(!gMeme.selectedLineIdx) gMeme.selectedLineIdx = 1
+    else gMeme.selectedLineIdx = 0
 }

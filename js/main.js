@@ -8,12 +8,16 @@ let gStartPos
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 function onInit() {
+    onInitCanvas()
+    renderGallery()
+}
+
+function onInitCanvas(){
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     resizeCanvas()
     // addListeners()
     renderCanvas()
-    renderGallery()
 }
 
 function renderCanvas() {
