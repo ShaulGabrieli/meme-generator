@@ -1,19 +1,24 @@
 'use strict'
 
-
-function renderMeme(img) {
-    // Draw the img on the canvas
-    gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+function renderMeme() {
+    const strDataURI = getMemeUrl()
+    var img = new Image()
+    img.onload = function () {
+        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+    }
+    img.src = strDataURI
+    setTimeout(() => {
+        renderText()
+    })
 }
 
-function drawText(text, x, y, fontSize, fontColor) {
+function drawText(text, x, y, fontSize, fontColor, fontAlign, strokeColor) {
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'black'
+    gCtx.strokeStyle = strokeColor
     gCtx.fillStyle = fontColor
     gCtx.font = fontSize + 'px impact'
-    gCtx.textAlign = 'left'
+    gCtx.textAlign = fontAlign
     gCtx.textBaseline = 'middle'
-
     gCtx.fillText(text, x, y) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(text, x, y) // Draws (strokes) a given text at the given (x, y) position.
 }
@@ -28,35 +33,52 @@ function onPickColor(value) {
 }
 
 function onDecreaseFont() {
-    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
     decreaseFont()
-    renderImgById(gMeme.selectedImgId)
-    drawText(selectedLine.txt, 100, 100, selectedLine.size, selectedLine.color)
+    renderMeme()
 }
 
 function onIncreaseFont() {
-    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
     increaseFont()
-    renderImgById(gMeme.selectedImgId)
-    drawText(selectedLine.txt, 100, 100, selectedLine.size, selectedLine.color)
+    renderMeme()
 }
 
 function onSetLineTxt(text) {
-    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-    const prevSelectedLine = gMeme.lines[gMeme.selectedLineIdx - 1]
-    const nextSelectedLine = gMeme.lines[gMeme.selectedLineIdx + 1]
-    renderImgById(gMeme.selectedImgId)
-    if (!gMeme.selectedLineIdx) {
-        setLineTxt(text)
-        drawText(nextSelectedLine.txt, 100, 400, nextSelectedLine.size, nextSelectedLine.color)
-        drawText(selectedLine.txt, 100, 100, selectedLine.size, selectedLine.color)
-    } else {
-        setLineTxt(text)
-        drawText(prevSelectedLine.txt, 100, 100, prevSelectedLine.size, prevSelectedLine.color)
-        drawText(selectedLine.txt, 100, 400, selectedLine.size, selectedLine.color)
-    }
+    setLineTxt(text)
+    renderMeme()
 }
 
 function onChangeLine() {
     changeLine()
 }
+
+function renderText() {
+    const lines = getGMemeLines()
+     lines.forEach((line) => {
+        drawText(line.txt, line.x, line.y, line.size, line.color, line.align, line.stroke)
+    })
+}
+
+function onAddLine() {
+    addLine()
+}
+
+function onLeftAlign() {
+    leftAlign()
+    renderMeme()
+}
+
+function onRightAlign() {
+    rightAlign()
+    renderMeme()
+}
+
+function onCenterAlign() {
+    centerAlign()
+    renderMeme()
+}
+
+function onChangeStroke(strokeColor){
+    changeStroke(strokeColor)
+    renderMeme()
+}
+

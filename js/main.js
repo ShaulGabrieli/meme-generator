@@ -72,3 +72,9 @@ function loadImageFromInput(ev, onImageReady) {
 
 }
 
+
+function onDeleteCanvas(){
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
+    
+}
+

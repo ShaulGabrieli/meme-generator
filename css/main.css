@@ -59,13 +59,13 @@ canvas {
     margin: 0;
     outline: 1px solid black;
     background-color: white;
-    width: 500px;
-    height: 500px;
+    width: 330px;
+    height: 330px;
 }
 
 .canvas-container {
-    width: 50vw;
-    height: 50vh;
+    width: 330px;
+    height: 300px;
     margin: 20px 50px;
 }
 
@@ -92,9 +92,9 @@ nav {
 
 /* main  */
 
-main{
-flex-direction: column;
-flex-grow: 1;
+main {
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .gallery {
@@ -106,28 +106,74 @@ flex-grow: 1;
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, 165px);
-    justify-content: space-between;
+    justify-content: center;
 
     gap: 10px;
 }
 
+/* editor  */
+
 .editor {
     background-color: var(--clr1);
-    min-height: 600px;
+    min-height: 70vh;
+    align-items: center;
+    flex-direction: column;
     /* flex-basis: 50%; */
-    
-    
+}
+
+.editor-buttons {
+    flex-direction: column;
+    /* margin-right: 135px; */
 }
 
 .editor-button {
-    width: 2.5em;
-    height: 2.4375em;
+    width: 1.5625em;
+    height: 1.5625em;
 }
 
 .editor-button-container {
+    margin: 0 0.625em 0 0.625em;
+    border-radius: 12px;
     background-color: var(--clr-1);
-    width: 3.75em;
-    height: 3.75em;
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.ed-action-button {
+    font-size: 1em;
+    color: var(--clr-1);
+    font-weight: 500;
+    font-family: Montserrat;
+    width: 7.5em;
+    height: 2.5em;
+    border-radius: 12px;
+    background-color: var(--clr0);
+    margin: 0 20px 0 0;
+    border-style: none;
+}
+
+.ed-first-line-buttons {
+    margin-bottom: 50px;
+}
+.ed-sec-line-buttons {
+    margin-bottom: 10px;
+}
+.ed-third-line-buttons {
+    margin-bottom: 20px;
+}
+
+.color-button {
+    background-image: url(../img/ICONS/paint-board-and-brush.png);
+    background-size: cover;
+}
+
+.text-line {
+    width: 330px;
+    height: 40px;
+    border-radius: 12px;
+    border-style: none;
+    margin: 25px 0 10px 0;
+    font-size: 1.538em;
 }
 
 .my-details {
@@ -290,5 +336,66 @@ footer p {
         margin: 0;
         padding: 0;
         list-style-type: none;
+    }
+
+    .editor {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .editor-button {
+        width: 2.5em;
+        height: 2.4375em;
+    }
+
+    .editor-button-container {
+        margin: 0 0.625em 0 0.625em;
+        border-radius: 12px;
+    }
+
+    .ed-action-button {
+        font-size: 1.25em;
+        color: var(--clr-1);
+        font-weight: 500;
+        font-family: Montserrat;
+        width: 6em;
+        height: 3em;
+        border-radius: 12px;
+        background-color: var(--clr0);
+        margin: 0 45px 0 0;
+        border-style: none;
+    }
+
+    .ed-first-line-buttons {
+        margin-bottom: 50px;
+    }
+    .ed-sec-line-buttons {
+        margin-bottom: 10px;
+    }
+    .ed-third-line-buttons {
+        margin-bottom: 20px;
+    }
+
+    .editor-button-container {
+        background-color: var(--clr-1);
+        width: 3.75em;
+        height: 3.75em;
+    }
+    canvas {
+        width: 500px;
+        height: 500px;
+    }
+    .canvas-container {
+        width: 500px;
+        height: 500px;
+    }
+    .text-line{
+        width: 373px;
+    height: 60px;
+    }
+    .ed-action-button {
+        font-size: 1.25em;
+        width: 6em;
+        height: 3em;
     }
 }
