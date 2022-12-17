@@ -39,6 +39,8 @@ html {
 body {
     margin: 0;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 h1,
@@ -54,6 +56,7 @@ img {
     width: 100%;
 }
 
+
 canvas {
     display: block;
     margin: 0;
@@ -64,12 +67,18 @@ canvas {
 }
 
 .canvas-container {
-    width: 330px;
-    height: 300px;
+    /* width: 330px;
+    height: 300px; */
     margin: 20px 50px;
 }
 
 /* header  */
+
+.search-Input{
+border-style: none;
+font-size: 20px;
+margin: 20px 0;
+}
 
 .nav-buttons li a {
     display: flex;
@@ -97,49 +106,43 @@ main {
     flex-grow: 1;
 }
 
-.gallery {
-    flex-direction: column;
-    min-height: 930px;
-    background-color: var(--clr1);
-}
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 165px);
-    justify-content: center;
-
-    gap: 10px;
-}
 
 /* editor  */
 
 .editor {
     background-color: var(--clr1);
-    min-height: 70vh;
+    /* min-height: 70vh; */
     align-items: center;
     flex-direction: column;
+    flex-grow: 1;
     /* flex-basis: 50%; */
 }
 
-.editor-buttons {
+.editor-buttons-section{
     flex-direction: column;
     /* margin-right: 135px; */
 }
 
-.editor-button {
+.editor-button-icon {
     width: 1.5625em;
     height: 1.5625em;
 }
 
-.editor-button-container {
+.editor-button {
+    cursor: pointer;
     margin: 0 0.625em 0 0.625em;
     border-radius: 12px;
     background-color: var(--clr-1);
     width: 2.5em;
     height: 2.5em;
 }
+a.ed-action-button {
+    text-decoration: none;
+}
 
 .ed-action-button {
+    cursor: pointer;
     font-size: 1em;
     color: var(--clr-1);
     font-weight: 500;
@@ -176,6 +179,31 @@ main {
     font-size: 1.538em;
 }
 
+.trans {
+    visibility: hidden;
+    /* display: none; */
+  }
+
+/* gallery  */
+
+.gallery {
+    flex-direction: column;
+    /* min-height: 930px; */
+    background-color: var(--clr1);
+    flex-grow: 1;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 165px);
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.gallery img{
+    cursor: pointer;
+}
 .my-details {
     background-color: var(--clr-1);
     flex-direction: column;
@@ -343,16 +371,10 @@ footer p {
         justify-content: space-evenly;
     }
 
-    .editor-button {
+    .editor-button-icon {
         width: 2.5em;
         height: 2.4375em;
     }
-
-    .editor-button-container {
-        margin: 0 0.625em 0 0.625em;
-        border-radius: 12px;
-    }
-
     .ed-action-button {
         font-size: 1.25em;
         color: var(--clr-1);
@@ -376,16 +398,14 @@ footer p {
         margin-bottom: 20px;
     }
 
-    .editor-button-container {
+    .editor-button {
         background-color: var(--clr-1);
         width: 3.75em;
         height: 3.75em;
+        margin: 0 0.625em 0 0.625em;
+        border-radius: 12px;
     }
     canvas {
-        width: 500px;
-        height: 500px;
-    }
-    .canvas-container {
         width: 500px;
         height: 500px;
     }

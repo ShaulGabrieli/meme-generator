@@ -18,6 +18,10 @@
                 <li><a href="#bottom">About</a></li>        
             </ul>
         </nav>
+        <section class="search-box flex space-between align-center">
+            <input class="search-Input" type="text" onkeyup="onSetFilter(this.value)" placeholder="Enter search keyword" />
+            <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
+          </section>
     </header>
     <main class="flex">
         <section class="gallery flex">
@@ -41,55 +45,54 @@
             <div class="canvas-container flex">
                 <canvas id="my-canvas" width="500" height="500"></canvas>
             </div>
-            <div class="editor-buttons flex align-center">
+            <div class="editor-buttons-section flex align-center">
                 <!-- <label for="text-line">Enter a text:</label> -->
                 <input type="text" class="text-line" onkeyup="onSetLineTxt(this.value)">
                 <!-- <label for="">Color</label> -->
                 <div class="ed-first-line-buttons flex">
-                    <div class="editor-button-container flex align-center justify-center"> 
-                         <img class="editor-button" src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" onclick="onChangeLine()" alt="">
+                    <div class="editor-button flex align-center justify-center"> 
+                         <img class="editor-button-icon" src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" onclick="onChangeLine()" alt="">
                     </div>
-                    <div class="editor-button-container flex align-center justify-center"> 
-                         <img class="editor-button" src="img/ICONS/add.png" onclick="onAddLine()" alt="">
+                    <div class="editor-button flex align-center justify-center"> 
+                         <img class="editor-button-icon" src="img/ICONS/add.png" onclick="onAddLine()" alt="">
                     </div>
-                    <div class="editor-button-container flex align-center justify-center"> 
-                         <img class="editor-button" src="img/ICONS/trash.png" onclick="onDeleteCanvas()" alt="">
+                    <div class="editor-button flex align-center justify-center"> 
+                         <img class="editor-button-icon" src="img/ICONS/trash.png" onclick="onDeleteCanvas()" alt="">
                     </div>
                 </div>
                 <div class="ed-sec-line-buttons flex">
-                    <div class="editor-button-container flex align-center justify-center"> 
-                         <img class="editor-button" src="img/ICONS/increase font - icon.png" onclick="onIncreaseFont()" alt="">
+                    <div class="editor-button flex align-center justify-center"> 
+                         <img class="editor-button-icon" src="img/ICONS/increase font - icon.png" onclick="onIncreaseFont()" alt="">
                     </div>
-                    <div class="editor-button-container flex align-center justify-center"> 
-                         <img class="editor-button" src="img/ICONS/decrease font - icon.png" onclick="onDecreaseFont()" alt="">
+                    <div class="editor-button flex align-center justify-center"> 
+                         <img class="editor-button-icon" src="img/ICONS/decrease font - icon.png" onclick="onDecreaseFont()" alt="">
                     </div>
-                    <div class="editor-button-container flex align-center justify-center"> 
-                         <img class="editor-button" src="img/ICONS/align-to-left.png" onclick="onRightAlign()" alt="">
+                    <div class="editor-button flex align-center justify-center"> 
+                         <img class="editor-button-icon" src="img/ICONS/align-to-left.png" onclick="onLeftAlign()" alt="">
                     </div>
-                    <div class="editor-button-container flex align-center justify-center"> 
-                         <img class="editor-button" src="img/ICONS/center-text-alignment.png" onclick="onCenterAlign()" alt="">
+                    <div class="editor-button flex align-center justify-center"> 
+                         <img class="editor-button-icon" src="img/ICONS/center-text-alignment.png" onclick="onCenterAlign()" alt="">
                     </div>
-                    <div class="editor-button-container flex align-center justify-center"> 
-                         <img class="editor-button" src="img/ICONS/align-to-right.png" onclick="onLeftAlign()" alt="">
+                    <div class="editor-button flex align-center justify-center"> 
+                         <img class="editor-button-icon" src="img/ICONS/align-to-right.png" onclick="onRightAlign()" alt="">
                     </div>
                 </div>
                 <div class="ed-third-line-buttons flex">
-                    <div class="editor-button-container flex align-center justify-center"> 
-                         <img class="editor-button" src="img/ICONS/text stroke.png" alt="">
-                         <input  type="color" onchange="onChangeStroke(this.value)">
+                    
+                    <input class="trans" type="color" id="style1" onchange="onChangeStroke(this.value)">
+                    <div class="editor-button flex align-center justify-center"> 
+                         
+                        <label for="style1" src="img/ICONS/text stroke.png"><img class="editor-button-icon" for="" src="img/ICONS/text stroke.png"></label>
+                        </div>
+                    <div class="editor-button flex align-center justify-center"> 
+                        <label for="style2" src="img/ICONS/text stroke.png"><img class="editor-button-icon" src="img/ICONS/paint-board-and-brush.png" alt=""></label>
                     </div>
-                    <div class="editor-button-container flex align-center justify-center"> 
-                         <img class="editor-button" src="img/ICONS/paint-board-and-brush.png" alt="">
-                         <input  type="color" onchange="onPickColor(this.value)">
-                    </div>
-
+                    <input class="trans" type="color" id="style2" onchange="onPickColor(this.value)">
                 </div >
                 <div class="ed-action-buttons flex">
-                        <button class="ed-action-button">Share</button>
-                        <button class="ed-action-button">Download</button>
-                        
+                        <button class="ed-action-button" onclick="onUploadImg()">Share</button>
+                        <a class="ed-action-button flex align-center justify-center" href="#" onclick="downloadImg(this)" download="my-img.jpg">Download</a></button>                       
                 </div>
-
             </div>
         </section>
     </main>

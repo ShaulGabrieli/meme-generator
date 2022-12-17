@@ -14,9 +14,10 @@ function renderGallery() {
 function onImgSelect(imgId){
     const elEditor = document.querySelector('.editor')
     const elgallery = document.querySelector('.gallery')
+    const elSearch = document.querySelector('.search-box')
     elEditor.classList.remove('hide')
     elgallery.classList.add('hide')
-    onInitCanvas()
+    elSearch.classList.add('hide')
     setImg(imgId)
     renderMeme()
 }
@@ -24,6 +25,15 @@ function onImgSelect(imgId){
 function openGallery(){
     const elgallery = document.querySelector('.gallery')
     const elEditor = document.querySelector('.editor')
+    const elSearch = document.querySelector('.search-box')
     elEditor.classList.add('hide')
     elgallery.classList.remove('hide')
+    elSearch.classList.remove('hide')
+}
+
+  // filter 
+
+function onSetFilter(filterBy) {
+    setFilter(filterBy)
+    renderGallery()
 }

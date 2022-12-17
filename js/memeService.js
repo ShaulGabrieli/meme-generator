@@ -1,20 +1,19 @@
 'use strict'
 
-var gMeme = {
+let gMeme = {
     selectedImgId: 0,
     selectedLineIdx: 0,
-    lines: [createText('', 100, 'center', 'white',500, 100, 'black')],
+    lines: [createText('', 30, 'left', 'white', 10, 30, 'black')],
 }
-
-var gImgs = createImages()
-var gIdx = 19
+let gFilterBy = ''
+let gImgs = createImages()
+let gIdx = 19
 
 function getMeme() {
     return gMeme.selectedImgId
 }
 
 function setImg(imgId) {
-    // gMeme = crateMeme(img.dataset.id)
     gMeme.selectedImgId = imgId
 }
 
@@ -33,30 +32,35 @@ function crateMeme(selectedImgId = gIdx++) {
 
 function createImages() {
     let imgs = [
-        { id: 1, url: 'img/meme-imgs (square)/1.jpg', keywords: ['funny', 'cat'] },
-        { id: 2, url: 'img/meme-imgs (square)/2.jpg', keywords: ['funny', 'cat'] },
-        { id: 3, url: 'img/meme-imgs (square)/3.jpg', keywords: ['funny', 'cat'] },
+        { id: 1, url: 'img/meme-imgs (square)/1.jpg', keywords: ['funny', 'person'] },
+        { id: 2, url: 'img/meme-imgs (square)/2.jpg', keywords: ['funny', 'dog'] },
+        { id: 3, url: 'img/meme-imgs (square)/3.jpg', keywords: ['funny', 'dog', 'baby'] },
         { id: 4, url: 'img/meme-imgs (square)/4.jpg', keywords: ['funny', 'cat'] },
-        { id: 5, url: 'img/meme-imgs (square)/5.jpg', keywords: ['funny', 'cat'] },
-        { id: 6, url: 'img/meme-imgs (square)/6.jpg', keywords: ['funny', 'cat'] },
-        { id: 7, url: 'img/meme-imgs (square)/7.jpg', keywords: ['funny', 'cat'] },
-        { id: 8, url: 'img/meme-imgs (square)/8.jpg', keywords: ['funny', 'cat'] },
-        { id: 9, url: 'img/meme-imgs (square)/9.jpg', keywords: ['funny', 'cat'] },
-        { id: 10, url: 'img/meme-imgs (square)/10.jpg', keywords: ['funny', 'cat'] },
-        { id: 11, url: 'img/meme-imgs (square)/11.jpg', keywords: ['funny', 'cat'] },
-        { id: 12, url: 'img/meme-imgs (square)/12.jpg', keywords: ['funny', 'cat'] },
-        { id: 13, url: 'img/meme-imgs (square)/13.jpg', keywords: ['funny', 'cat'] },
-        { id: 14, url: 'img/meme-imgs (square)/14.jpg', keywords: ['funny', 'cat'] },
-        { id: 15, url: 'img/meme-imgs (square)/15.jpg', keywords: ['funny', 'cat'] },
-        { id: 16, url: 'img/meme-imgs (square)/16.jpg', keywords: ['funny', 'cat'] },
-        { id: 17, url: 'img/meme-imgs (square)/17.jpg', keywords: ['funny', 'cat'] },
-        { id: 18, url: 'img/meme-imgs (square)/18.jpg', keywords: ['funny', 'cat'] },
+        { id: 5, url: 'img/meme-imgs (square)/5.jpg', keywords: ['funny', 'person', 'baby'] },
+        { id: 6, url: 'img/meme-imgs (square)/6.jpg', keywords: ['funny', 'person'] },
+        { id: 7, url: 'img/meme-imgs (square)/7.jpg', keywords: ['funny', 'baby'] },
+        { id: 8, url: 'img/meme-imgs (square)/8.jpg', keywords: ['funny', 'person'] },
+        { id: 9, url: 'img/meme-imgs (square)/9.jpg', keywords: ['funny', 'person'] },
+        { id: 10, url: 'img/meme-imgs (square)/10.jpg', keywords: ['funny', 'person'] },
+        { id: 11, url: 'img/meme-imgs (square)/11.jpg', keywords: ['funny', 'person'] },
+        { id: 12, url: 'img/meme-imgs (square)/12.jpg', keywords: ['funny', 'person'] },
+        { id: 13, url: 'img/meme-imgs (square)/13.jpg', keywords: ['funny', 'person'] },
+        { id: 14, url: 'img/meme-imgs (square)/14.jpg', keywords: ['funny', 'person'] },
+        { id: 15, url: 'img/meme-imgs (square)/15.jpg', keywords: ['funny', 'person'] },
+        { id: 16, url: 'img/meme-imgs (square)/16.jpg', keywords: ['funny', 'person'] },
+        { id: 17, url: 'img/meme-imgs (square)/17.jpg', keywords: ['funny', 'person'] },
+        { id: 18, url: 'img/meme-imgs (square)/18.jpg', keywords: ['funny', 'cartoon'] },
     ]
     return imgs
 }
 
 function getMemesForDisplay() {
-    return gImgs
+    var currImgs
+    if (gFilterBy === '') currImgs = gImgs.slice()
+    else {
+        currImgs = gImgs.filter((img) => img.keywords.find((key) => key.includes(gFilterBy.toLowerCase())))
+    }
+    return currImgs
 }
 
 function createText(txt, size, align, color, x, y, stroke) {
@@ -100,35 +104,51 @@ function getGMemeLines() {
 }
 
 function addLine() {
-    if(gMeme.lines.length>1){
-        gMeme.lines.push(createText('', 100, 'center', 'white', 500, 250))
+    if (gMeme.lines.length > 1) {
+        gMeme.lines.push(createText('', 30, 'left', 'white', 10, 250, 'black'))
     } else {
-        gMeme.lines.push(createText('', 100, 'center', 'white', 500, 400))
+        gMeme.lines.push(createText('', 30, 'left', 'white', 10, 470, 'black'))
     }
     gMeme.selectedLineIdx++
 }
-
-function leftAlign() {
-    gMeme.lines.forEach((line) => {
-        line.align = 'left'
-    })
-}
-
-function rightAlign() {
-    gMeme.lines.forEach((line) => {
-        line.align = 'right'
-    })
-}
-
-function centerAlign() {
-    gMeme.lines.forEach((line) => {
-        line.align = 'center'
-    })
-}
-
 
 function changeStroke(strokeColor) {
     gMeme.lines.forEach((line) => {
         line.stroke = strokeColor
     })
+}
+
+function deleteCanvas() {
+    gMeme.selectedLineIdx = 0
+    gMeme.lines = [createText('', 30, 'left', 'white', 10, 30, 'black')]
+}
+
+function getCurLine() {
+    return gMeme.lines[gMeme.selectedLineIdx]
+}
+
+function moveText(x, y) {
+    gMeme.lines[gMeme.selectedLineIdx].x = x
+    gMeme.lines[gMeme.selectedLineIdx].y = y
+}
+
+function setSelectedLineIdx(idx) {
+    gMeme.selectedLineIdx = idx
+}
+
+function setFilter(filterBy) {
+    gFilterBy = filterBy
+}
+
+function setNewImg(){
+let img = createImg()
+gImgs.push(img)
+return img.id
+}
+
+
+
+function createImg(){
+    const img = { id: gIdx++, url: '', keywords: ['funny'] }
+    return img
 }
