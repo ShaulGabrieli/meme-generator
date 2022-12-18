@@ -56,7 +56,6 @@ img {
     width: 100%;
 }
 
-
 canvas {
     display: block;
     margin: 0;
@@ -72,12 +71,34 @@ canvas {
     margin: 20px 50px;
 }
 
+/* COMPONENTS */
+
+.main-screen {
+    position: fixed;
+    inset: 0;
+    background-color: #000;
+    background-color: rgb(0 0 0 / 70%);
+    cursor: pointer;
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition: opacity 0.6s;
+}
+
+body.menu-open .main-screen {
+    pointer-events: auto;
+    opacity: 1;
+}
+
 /* header  */
 
-.search-Input{
-border-style: none;
-font-size: 20px;
-margin: 20px 0;
+.menu-toggle-btn {
+    font-size: 20px;
+    color: var(--clr-1);
+    background-color: var(--clr0);
+    border-style: none;
+    cursor: pointer;
 }
 
 .nav-buttons li a {
@@ -87,6 +108,12 @@ margin: 20px 0;
     font-weight: 400;
     padding: 1.3157em 0.2631em;
     text-decoration: none;
+}
+
+.search-Input {
+    border-style: none;
+    font-size: 20px;
+    margin: 20px 50px;
 }
 
 nav {
@@ -106,22 +133,17 @@ main {
     flex-grow: 1;
 }
 
-
-
 /* editor  */
 
 .editor {
     background-color: var(--clr1);
-    /* min-height: 70vh; */
     align-items: center;
     flex-direction: column;
     flex-grow: 1;
-    /* flex-basis: 50%; */
 }
 
-.editor-buttons-section{
+.editor-buttons-section {
     flex-direction: column;
-    /* margin-right: 135px; */
 }
 
 .editor-button-icon {
@@ -151,8 +173,12 @@ a.ed-action-button {
     height: 2.5em;
     border-radius: 12px;
     background-color: var(--clr0);
-    margin: 0 20px 0 0;
     border-style: none;
+    margin-bottom: 15px;
+}
+
+.ed-action-button:first-child {
+    margin: 0 20px 0 0;
 }
 
 .ed-first-line-buttons {
@@ -181,14 +207,12 @@ a.ed-action-button {
 
 .trans {
     visibility: hidden;
-    /* display: none; */
-  }
+}
 
 /* gallery  */
 
 .gallery {
     flex-direction: column;
-    /* min-height: 930px; */
     background-color: var(--clr1);
     flex-grow: 1;
 }
@@ -197,12 +221,15 @@ a.ed-action-button {
     display: grid;
     grid-template-columns: repeat(auto-fit, 165px);
     justify-content: center;
-
     gap: 10px;
 }
 
-.gallery img{
+.gallery img {
     cursor: pointer;
+}
+
+.gallery img:hover {
+    border: 5px solid var(--clr0);
 }
 .my-details {
     background-color: var(--clr-1);
@@ -309,6 +336,23 @@ footer p {
     padding: 0;
     list-style-type: none;
 }
+@media (max-width: 1200px) {
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+        height: 100vh;
+        background-color: var(--clr0);
+        border-inline-start: 1px solid var(--clr1);
+        min-width: 200px;
+        transform: translateX(100%);
+        transition: transform 0.6s;
+    }
+    body.menu-open nav ul {
+        transform: translateX(0);
+    }
+}
 
 @media (min-width: 1200px) {
     .grid-container {
@@ -375,17 +419,15 @@ footer p {
         width: 2.5em;
         height: 2.4375em;
     }
+
     .ed-action-button {
         font-size: 1.25em;
-        color: var(--clr-1);
-        font-weight: 500;
-        font-family: Montserrat;
         width: 6em;
         height: 3em;
-        border-radius: 12px;
-        background-color: var(--clr0);
+    }
+
+    .ed-action-button:first-child {
         margin: 0 45px 0 0;
-        border-style: none;
     }
 
     .ed-first-line-buttons {
@@ -409,13 +451,32 @@ footer p {
         width: 500px;
         height: 500px;
     }
-    .text-line{
+    .text-line {
         width: 373px;
-    height: 60px;
+        height: 60px;
     }
-    .ed-action-button {
-        font-size: 1.25em;
-        width: 6em;
-        height: 3em;
+    .menu-toggle-btn {
+        display: none;
+    }
+
+    .nav-buttons li a {
+        display: flex;
+        font-family: Montserrat, sans-serif;
+        font-size: 1.1875em;
+        font-weight: 400;
+        padding: 1.3157em 0.2631em;
+        text-decoration: none;
+    }
+
+    .nav-buttons li:nth-child(2) a {
+        padding-right: 50px;
+    }
+    .nav-buttons li a {
+        display: flex;
+        font-family: Montserrat, sans-serif;
+        font-size: 1.1875em;
+        font-weight: 400;
+        padding: 1.3157em 0.2631em;
+        text-decoration: none;
     }
 }

@@ -140,15 +140,15 @@ function setFilter(filterBy) {
     gFilterBy = filterBy
 }
 
-function setNewImg(){
-let img = createImg()
+function setNewImg(imgContent){
+const img = createImg(imgContent)
 gImgs.push(img)
 return img.id
 }
 
 
 
-function createImg(){
-    const img = { id: gIdx++, url: '', keywords: ['funny'] }
+function createImg(imgContent){
+    const img = { id: gIdx++, url: imgContent, keywords: ['funny'] }
     return img
 }

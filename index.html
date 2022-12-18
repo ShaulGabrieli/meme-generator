@@ -8,6 +8,7 @@
     <title>Meme Generator</title>
 </head>
 <body onload="onInit()">
+    <div class="main-screen" onclick="toggleMenu()"></div>
     <header>
         <nav class="flex space-between align-center">
             <div class="logo">
@@ -17,10 +18,12 @@
                 <li><a href="#" onclick="openGallery()">Gallery</a></li>
                 <li><a href="#bottom">About</a></li>        
             </ul>
+            <button class="menu-toggle-btn" onclick="toggleMenu()">☰</button>
         </nav>
         <section class="search-box flex space-between align-center">
             <input class="search-Input" type="text" onkeyup="onSetFilter(this.value)" placeholder="Enter search keyword" />
-            <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
+            <label for="files" class="search-Input">Select file</label>
+            <input type="file" class="hide" id="files" name="image" onchange="onImgInput(event)" />
           </section>
     </header>
     <main class="flex">
@@ -79,7 +82,7 @@
                 </div>
                 <div class="ed-third-line-buttons flex">
                     
-                    <input class="trans" type="color" id="style1" onchange="onChangeStroke(this.value)">
+                    <input class="hide" type="color" id="style1" onchange="onChangeStroke(this.value)">
                     <div class="editor-button flex align-center justify-center"> 
                          
                         <label for="style1" src="img/ICONS/text stroke.png"><img class="editor-button-icon" for="" src="img/ICONS/text stroke.png"></label>
@@ -87,7 +90,7 @@
                     <div class="editor-button flex align-center justify-center"> 
                         <label for="style2" src="img/ICONS/text stroke.png"><img class="editor-button-icon" src="img/ICONS/paint-board-and-brush.png" alt=""></label>
                     </div>
-                    <input class="trans" type="color" id="style2" onchange="onPickColor(this.value)">
+                    <input class="hide" type="color" id="style2" onchange="onPickColor(this.value)">
                 </div >
                 <div class="ed-action-buttons flex">
                         <button class="ed-action-button" onclick="onUploadImg()">Share</button>
@@ -100,11 +103,12 @@
         <div class="logo logo-bottom">
             <img src="img/Layer_2.png" alt="">
         </div>
-        <p>all rights reserved 2019</p>
+        <p>all rights reserved 2022</p>
     </footer>
-    <script src="js/memeService.js"></script>
-    <script src="js/galleryController.js"></script>
-    <script src="js/memeController.js"></script>
+    <script src="js/services/meme.Service.js"></script>
+
+    <script src="js/gallery.Controller.js"></script>
+    <script src="js/meme.Controller.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,12 +1,12 @@
 'use strict'
 
-let isDownload = false
-let gPrevOffsetX;
-let gPrevOffsetY;
-let gNewX;
-let gNewY;
+let gPrevOffsetX
+let gPrevOffsetY
+let gNewX
+let gNewY
+let canvasForDownload
 
-function renderMeme() {
+function renderMeme(isForDowloand) {
     const strDataURI = getMemeUrl()
     var img = new Image()
     img.src = strDataURI
@@ -16,10 +16,10 @@ function renderMeme() {
         lines.forEach((line, idx) => {
             drawText(line.txt, line.x, line.y, line.size, line.color, line.align, line.stroke)
             const textWidth = gCtx.measureText(line.txt, line.x, line.y).width
-            if (!isDownload) {
-                if (idx === gMeme.selectedLineIdx) {
-                    drawRect(line.x - 10, line.y - line.size + 10, textWidth + 10, line.size * 1.333)
-                }
+            canvasForDownload = gElCanvas.toDataURL('image/jpg')
+            gMeme.screenShot = canvasForDownload
+            if (idx === gMeme.selectedLineIdx) {
+                drawRect(line.x - 10, line.y - line.size + 10, textWidth + 10, line.size * 1.333)
             }
         })
     }
@@ -104,6 +104,16 @@ function drawRect(x, y, width, height) {
 
 // click events
 
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+    //Listen for resize ev
+    window.addEventListener('resize', () => {
+        // resizeCanvas()
+        // renderMeme()
+    })
+}
+
 function addMouseListeners() {
     gElCanvas.addEventListener('mousemove', onMove)
     gElCanvas.addEventListener('mousedown', onDown)
@@ -153,10 +163,9 @@ function onUp() {
 // upload and download and share
 
 function downloadImg(elLink) {
-    isDownload = true
-    renderMeme()
-    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
-    elLink.href = imgContent     
+    
+    const imgContent = gMeme.screenShot // image/jpeg the default format
+    elLink.href = imgContent
 }
 
 function onUploadImg() {
@@ -185,31 +194,29 @@ function doUploadImg(imgDataUrl, onSuccess) {
 }
 
 function indexOflineClicked(x, y) {
-    const lines = getGMemeLines();
-    let indexToReturn = -1;
+    const lines = getGMemeLines()
+    let indexToReturn = -1
     lines.forEach((line, idx) => {
-      const textWidth = gCtx.measureText(line.txt, line.x, line.y).width;
-      if (line.x - 10 < x && x < line.x + textWidth + 10 && line.y < y &&y < line.y + line.size + 10) {
-        indexToReturn = idx;
-      }
-    }) 
-    return indexToReturn;
-  }
-
+        const textWidth = gCtx.measureText(line.txt, line.x, line.y).width
+        if (line.x - 10 < x && x < line.x + textWidth + 10 && line.y < y && y < line.y + line.size + 10) {
+            indexToReturn = idx
+        }
+    })
+    return indexToReturn
+}
 
 function onChangeTextValue() {
-    const curLine = getCurLine();
-    document.querySelector(".text-input").value = curLine.txt;
-  }
+    const curLine = getCurLine()
+    document.querySelector('.text-input').value = curLine.txt
+}
 
-  function onImgInput(ev) {
+function onImgInput(ev) {
     const elEditor = document.querySelector('.editor')
     const elgallery = document.querySelector('.gallery')
     const elSearch = document.querySelector('.search-box')
     elEditor.classList.remove('hide')
     elgallery.classList.add('hide')
     elSearch.classList.add('hide')
-    setImg(setNewImg())
     loadImageFromInput(ev, renderImg)
 }
 
@@ -225,16 +232,16 @@ function loadImageFromInput(ev, onImageReady) {
     }
 
     reader.readAsDataURL(ev.target.files[0]) // Read the file we picked
-  
 }
 
 function renderImg(img) {
     // Draw the img on the canvas
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-    console.log('sdsdsdsdsd', gImgs);
+    const imgContent = gElCanvas.toDataURL('image/jpeg')
+    setImg(setNewImg(imgContent))
 }
 
-function onDeleteCanvas(){
+function onDeleteCanvas() {
     deleteCanvas()
     renderMeme()
 }

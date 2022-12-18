@@ -21,16 +21,10 @@ function resizeCanvas() {
     gElCanvas.height = elContainer.offsetWidth 
 }
 
-
-function addListeners() {
-    addMouseListeners()
-    addTouchListeners()
-    //Listen for resize ev
-    window.addEventListener('resize', () => {
-        // resizeCanvas()
-        renderMeme()
-    })
+function toggleMenu() {
+    document.body.classList.toggle('menu-open')
 }
+
 
 
 
