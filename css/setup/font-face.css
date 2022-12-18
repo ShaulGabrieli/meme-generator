@@ -1,0 +1,14 @@
+/* typography */
+
+@font-face {
+    font-family: montserrat;
+    src: url(/fonts/Montserrat/static/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: montserrat-thin;
+    src: url(/fonts/Montserrat/static/Montserrat-Thin.ttf);
+}
+@font-face {
+    font-family: impact;
+    src: url(/fonts/Impact/impact.ttf);
+}

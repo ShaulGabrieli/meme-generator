@@ -1,0 +1,17 @@
+/* footer  */
+
+footer {
+    background-color: var(--clr0);
+    flex-direction: column;
+}
+
+.logo.logo-bottom {
+    margin: 4.8125em 0 1em 0;
+}
+
+footer p {
+    font-family: montserrat-thin;
+    color: var(--clr-1);
+    font-size: 1.1875em;
+    margin: 0 0 3.8421em 0;
+}

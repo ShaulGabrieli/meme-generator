@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Montserrat;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 0 0;
+}
+
+img {
+    width: 100%;
+}
+
+canvas {
+    display: block;
+    margin: 0;
+    outline: 1px solid black;
+    background-color: white;
+    width: 330px;
+    height: 330px;
+}
+
+.canvas-container {
+    /* width: 330px;
+    height: 300px; */
+    margin: 20px 50px;
+}
+
+main {
+    flex-direction: column;
+    flex-grow: 1;
+}

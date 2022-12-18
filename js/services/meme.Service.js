@@ -32,7 +32,7 @@ function crateMeme(selectedImgId = gIdx++) {
 
 function createImages() {
     let imgs = [
-        { id: 1, url: 'img/meme-imgs (square)/1.jpg', keywords: ['funny', 'person'] },
+        { id: 1, url: 'img/meme-imgs (square)/1.jpg', keywords: ['funny', 'person', 'trump'] },
         { id: 2, url: 'img/meme-imgs (square)/2.jpg', keywords: ['funny', 'dog'] },
         { id: 3, url: 'img/meme-imgs (square)/3.jpg', keywords: ['funny', 'dog', 'baby'] },
         { id: 4, url: 'img/meme-imgs (square)/4.jpg', keywords: ['funny', 'cat'] },
@@ -40,15 +40,15 @@ function createImages() {
         { id: 6, url: 'img/meme-imgs (square)/6.jpg', keywords: ['funny', 'person'] },
         { id: 7, url: 'img/meme-imgs (square)/7.jpg', keywords: ['funny', 'baby'] },
         { id: 8, url: 'img/meme-imgs (square)/8.jpg', keywords: ['funny', 'person'] },
-        { id: 9, url: 'img/meme-imgs (square)/9.jpg', keywords: ['funny', 'person'] },
-        { id: 10, url: 'img/meme-imgs (square)/10.jpg', keywords: ['funny', 'person'] },
+        { id: 9, url: 'img/meme-imgs (square)/9.jpg', keywords: ['funny', 'person', 'baby'] },
+        { id: 10, url: 'img/meme-imgs (square)/10.jpg', keywords: ['funny', 'person','obama'] },
         { id: 11, url: 'img/meme-imgs (square)/11.jpg', keywords: ['funny', 'person'] },
         { id: 12, url: 'img/meme-imgs (square)/12.jpg', keywords: ['funny', 'person'] },
         { id: 13, url: 'img/meme-imgs (square)/13.jpg', keywords: ['funny', 'person'] },
         { id: 14, url: 'img/meme-imgs (square)/14.jpg', keywords: ['funny', 'person'] },
         { id: 15, url: 'img/meme-imgs (square)/15.jpg', keywords: ['funny', 'person'] },
         { id: 16, url: 'img/meme-imgs (square)/16.jpg', keywords: ['funny', 'person'] },
-        { id: 17, url: 'img/meme-imgs (square)/17.jpg', keywords: ['funny', 'person'] },
+        { id: 17, url: 'img/meme-imgs (square)/17.jpg', keywords: ['funny', 'person', 'putin'] },
         { id: 18, url: 'img/meme-imgs (square)/18.jpg', keywords: ['funny', 'cartoon'] },
     ]
     return imgs

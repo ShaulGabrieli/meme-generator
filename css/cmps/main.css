@@ -1,0 +1,159 @@
+
+
+
+
+/* editor  */
+
+.editor {
+    background-color: var(--clr1);
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.editor-buttons-section {
+    flex-direction: column;
+}
+
+.editor-button-icon {
+    width: 1.5625em;
+    height: 1.5625em;
+}
+
+.editor-button {
+    cursor: pointer;
+    margin: 0 0.625em 0 0.625em;
+    border-radius: 12px;
+    background-color: var(--clr-1);
+    width: 2.5em;
+    height: 2.5em;
+}
+a.ed-action-button {
+    text-decoration: none;
+}
+
+.ed-action-button {
+    cursor: pointer;
+    font-size: 1em;
+    color: var(--clr-1);
+    font-weight: 500;
+    font-family: Montserrat;
+    width: 7.5em;
+    height: 2.5em;
+    border-radius: 12px;
+    background-color: var(--clr0);
+    border-style: none;
+    margin-bottom: 15px;
+}
+
+.ed-action-button:first-child {
+    margin: 0 20px 0 0;
+}
+
+.ed-first-line-buttons {
+    margin-bottom: 50px;
+}
+.ed-sec-line-buttons {
+    margin-bottom: 10px;
+}
+.ed-third-line-buttons {
+    margin-bottom: 20px;
+}
+
+.color-button {
+    background-image: url(../img/ICONS/paint-board-and-brush.png);
+    background-size: cover;
+}
+
+.text-line {
+    width: 330px;
+    height: 40px;
+    border-radius: 12px;
+    border-style: none;
+    margin: 25px 0 10px 0;
+    font-size: 1.538em;
+}
+
+.trans {
+    visibility: hidden;
+}
+
+/* gallery  */
+
+.gallery {
+    flex-direction: column;
+    background-color: var(--clr1);
+    flex-grow: 1;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 165px);
+    justify-content: center;
+    gap: 10px;
+}
+
+.gallery img {
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    border: 5px solid var(--clr0);
+}
+.my-details {
+    background-color: var(--clr-1);
+    flex-direction: column;
+}
+
+.my-details .my-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 2.1875em auto 1.125em;
+}
+
+.my-note {
+    flex-direction: column;
+    text-align: center;
+}
+
+.my-note h2 {
+    font-family: Montserrat, sans-serif;
+    color: var(--clr0);
+    font-size: 1.375em;
+    font-weight: 700;
+    margin-bottom: 1.0454em;
+}
+
+.my-note p {
+    font-family: Montserrat, sans-serif;
+    font-size: 0.9375em;
+    margin: 0 0 0.9375em 0;
+}
+
+.social-icons {
+    width: 2.4375em;
+    height: 2.4375em;
+    background-color: var(--clr0);
+    border-radius: 12px;
+    margin: 0 0.5625em 3.9375em 0;
+}
+
+.icons-container {
+    margin: 0 auto;
+    padding: 0;
+    list-style-type: none;
+}
+
+.social-icons .facebook {
+    width: 13px;
+    height: 25px;
+}
+.social-icons .linkedin {
+    width: 27px;
+    height: 25px;
+}
+.social-icons .github {
+    width: 25px;
+    height: 25px;
+}

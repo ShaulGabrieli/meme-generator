@@ -1,0 +1,52 @@
+/* header  */
+
+.menu-toggle-btn {
+    font-size: 20px;
+    color: var(--clr-1);
+    background-color: var(--clr0);
+    border-style: none;
+    cursor: pointer;
+}
+
+.nav-buttons li a {
+    display: flex;
+    font-family: Montserrat, sans-serif;
+    font-size: 1.1875em;
+    font-weight: 400;
+    padding: 1.3157em 0.2631em;
+    text-decoration: none;
+}
+
+.search-Input {
+    border-style: none;
+    font-size: 20px;
+    margin: 20px 50px;
+}
+
+nav {
+    background-color: var(--clr0);
+}
+
+.logo {
+    width: 133px;
+    height: 22px;
+    margin-left: 50px;
+}
+
+.main-screen {
+    position: fixed;
+    inset: 0;
+    background-color: #000;
+    background-color: rgb(0 0 0 / 70%);
+    cursor: pointer;
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition: opacity 0.6s;
+}
+
+body.menu-open .main-screen {
+    pointer-events: auto;
+    opacity: 1;
+}
