@@ -1,4 +1,4 @@
-/* setup  */
+/* setup */
 @import './setup/font-face.css';
 @import './setup/vars.css';
 /* basic  */
@@ -10,6 +10,6 @@
 @import './cmps/main.css';
 @import './cmps/footer.css';
 @import './cmps/mobile-extras.css';
-@import './cmps/desktop-screen.css';
+@import './cmps/desktop-screen.css'; 
 
 
